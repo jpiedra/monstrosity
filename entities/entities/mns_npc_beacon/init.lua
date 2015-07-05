@@ -2,6 +2,7 @@ AddCSLuaFile( "cl_init.lua" )
 AddCSLuaFile( "shared.lua" )
 
 include( 'shared.lua' )
+include( 'cl_init.lua' )
 
 function ENT:Initialize()
 	self:SetModel( "models/props_combine/combinethumper002.mdl" )
@@ -21,8 +22,12 @@ function ENT:Use( activator )
 	if ( activator:IsPlayer() ) then 
 		activator:Kill()
 	end
+	
+	if ( !triggered ) then 
+		self:SpawnNPCS()
+	end
 end
 
 function ENT:Think()
-
+	
 end

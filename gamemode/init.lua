@@ -97,6 +97,10 @@ concommand.Add( "mns_spawnbeacon", function( pl )
 	end
 end )
 
+concommand.Add( "mns_givechairlauncher", function( pl )
+	pl:Give( 'mns_chairlauncher' )
+end )
+
 concommand.Add( "mns_switchteam", function( pl )
 	if pl:Team() == 0 then
 		pl:Kill()
