@@ -1,0 +1,37 @@
+"monstrosity"
+{
+	"base"		"base"
+	"title"		"Monstrosity"
+	"maps"		""
+	"menusystem"	"1"
+
+	"settings"
+	{
+		1
+		{
+			"name"		"mns_maxpoints"
+			"text"		"Max Points"
+			"help"		"Number of points needed to win the round"
+			"type"		"Numeric"
+			"default"	"50"
+		}
+		
+		2
+		{
+			"name"		"mns_canhurthumans"
+			"text"		"Humans Can Hurt Eachother"
+			"help"		"If enabled, competing human teams can hurt eachother"
+			"type"		"Checkbox"
+			"default"	"0"
+		}
+		
+		3
+		{
+			"name"		"mns_beaconlimit"
+			"text"		"Max Beacons"
+			"help"		"Limit to the amount of beacons on map at the same time"
+			"type"		"Numeric"
+			"default"	"3"
+		}
+	}
+}
