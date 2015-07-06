@@ -60,13 +60,6 @@ function GM:PlayerSetHandsModel( ply, ent )
 
 end
 
-function NoFFire( target, attacker ) 
-	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) then	return false
-	end
-	return true
-end
-hook.Add( 'PlayerShouldTakeDamage', 'mns.ffire', NoFFire )
-
 function GM:PlayerLoadout( pl )
 	pl:StripWeapons()
 	
@@ -78,6 +71,18 @@ function GM:PlayerLoadout( pl )
 		pl:Give(wep)
 	end
 end
+
+/*function NoFFire( target, attacker ) 
+	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) then	return false
+	end
+	return true
+end*/
+/*
+hook.Add( 'PlayerShouldTakeDamage', 'mns.ffire', function ( target, attacker ) 
+	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) then	return false
+	end
+	return true
+end )*/
 
 concommand.Add( "mns_spawnbeacon", function( pl )
 	local ent = ents.Create( 'mns_npc_beacon' )
@@ -101,10 +106,12 @@ concommand.Add( "mns_givechairlauncher", function( pl )
 end )
 
 concommand.Add( "mns_switchteam", function( pl )
-	if pl:Team() == 0 then
+	if team:NumPlayers( 0 ) == team:NumPlayers( 1 ) then 
+		MsgN( "Failed to switch teams: teams are balanced." )
+		return 
+	elseif pl:Team() == 0 then
 		pl:Kill()
 		pl:SetTeam( 1 )
-		tmname = 
 		MsgN( "Player ", pl:Nick(), " was moved to the White team." )
 	elseif pl:Team() == 1 then
 		pl:Kill()

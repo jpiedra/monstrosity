@@ -51,7 +51,7 @@ function SWEP:SecondaryAttack()
 	-- automatic and so we let them fire as fast as they can click.
 
 	-- Call 'ThrowChair' on self with this model
-	self:ThrowChair( "models/props_c17/FurnitureChair001a.mdl" )
+	self:ThrowChair( "models/props/cs_office/Chair_office.mdl" )
 
 end
 

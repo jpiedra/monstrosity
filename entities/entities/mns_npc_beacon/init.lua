@@ -11,6 +11,7 @@ function ENT:Initialize()
 	self:PhysicsInit( SOLID_VPHYSICS )
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:SetSolid( SOLID_VPHYSICS )
+	self:SetTriggered( false )
 	
 	local phys = self:GetPhysicsObject()
 	if ( phys:IsValid() ) then
@@ -19,11 +20,11 @@ function ENT:Initialize()
 end
 
 function ENT:Use( activator )
-	if ( activator:IsPlayer() ) then 
-		activator:Kill()
-	end
-	
-	if ( !triggered ) then 
+	local isTriggered = self:GetTriggered()
+
+	if ( activator:IsPlayer() && !isTriggered ) then 
+		//activator:Kill()
+		//self:SetTriggered( true )
 		self:SpawnNPCS()
 	end
 end
