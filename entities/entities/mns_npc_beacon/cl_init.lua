@@ -1,26 +1,27 @@
 include( 'shared.lua' )
 
 function ENT:Draw()
-	-- self.BaseClass.Draw(self) -- overrides draw
-	//self:DrawEntityOutline( 1.0 )
 	self:DrawModel()
-	
-	//AddWorldTip( self:EntIndex(), "NPC Beacon", 0.5, self:GetPos, self )
 end
 
 function ENT:SpawnNPCS() 
 	local keyToRemove = table.KeyFromValue( beacons, self:EntIndex() )
-	print( "I should only appear once" )
-	
 	local rndNPC_key = math.random(0, 5)
+	
+	local rndX = math.random(-200, 200)
+	local rndY = math.random(-200, 200)
+	
+	local spawnLoc = Vector(rndX, rndY, 25)
+	
+	if ( util.PointContents( self:GetPos() + spawnLoc ) != 0 ) then return end
+	/*	MsgN( "Unable to spawn at location " .. rndX .. ", " .. rndY .. ", 10." )
+		return 
+	end*/
+		
 	local ent = ents.Create( MNS_NPCS[rndNPC_key].mns_string )
 	if ( !IsValid( ent ) ) then return end
 	
-	local rndX = math.random(100, 300)
-	local rndY = math.random(100, 300)
-	
-	ent:SetPos( self:GetPos() + Vector(rndX, rndY, 10) )
-	//ent:SetAngles( self.Owner:EyeAngles() )
+	ent:SetPos( self:GetPos() + spawnLoc )
 	ent:Spawn()
 	
 	if MNS_NPCS[rndNPC_key].mns_string == 'npc_combine_s' then
