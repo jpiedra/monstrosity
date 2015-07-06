@@ -59,14 +59,13 @@ function GM:PlayerSetHandsModel( ply, ent )
 	end
 
 end
-/*
-local function NoFFire( target, attacker ) 
-	if ( attacker:Team() == target:Team() ) then
-		return false
+
+function NoFFire( target, attacker ) 
+	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) then	return false
 	end
 	return true
 end
-hook.Add( 'PlayerShouldTakeDamage', 'mns.ffire', NoFFire )*/
+hook.Add( 'PlayerShouldTakeDamage', 'mns.ffire', NoFFire )
 
 function GM:PlayerLoadout( pl )
 	pl:StripWeapons()
