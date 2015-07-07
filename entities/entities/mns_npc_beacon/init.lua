@@ -5,13 +5,6 @@ include( 'shared.lua' )
 include( 'cl_init.lua' )
 
 function ENT:Initialize()
-	local w=20  
-    local l=20  
-    local h=20 
- 
-    local min=Vector(0-(w/2),0-(l/2),0-(h/2))
-    local max=Vector(w/2,l/2,h/2)
- 
 	//self:SetModel( "models/props_combine/combine_binocular01.mdl" )
 	//self:SetModel( "models/props_combine/combine_light001b.mdl" )
 	//self:SetModel( "models/props_rooftop/roof_vent004.mdl" )
@@ -33,19 +26,32 @@ function ENT:Initialize()
 end
 
 function ENT:Use( activator )
+	local keyToRemove = table.KeyFromValue( beacons, self:EntIndex() )
 	local isTriggered = self:GetTriggered()
-	self:SetColor( Color( 255, 0, 0, 255 ) )
+	//self:SetColor( Color( 255, 0, 0, 255 ) )
 	//&& !isTriggered
 	
 	if activator:IsPlayer() then 
 		//activator:Kill()
-		//self:SetTriggered( true )
+		if ( !isTriggered ) then 
+			self:SetColor( Color( 255, 0, 0, 255 ) )
+		end 
+		self:SetTriggered( true )
 		self:SpawnNPCS()
+		timer.Simple( 5, function() 
+			SafeRemoveEntity( self, keyToRemove )
+		end )
 	end
 end
 
+function SafeRemoveEntity( ent, keyToRemove )
+    if ( !ent || !ent:IsValid() || ent:IsPlayer() ) then return end
+    print( table.remove( beacons, keyToRemove ) )
+    ent:Remove()   
+end
+
+
 function ENT:SpawnNPCS() 
-	//local keyToRemove = table.KeyFromValue( beacons, self:EntIndex() )
 	local rndNPC_key = math.random(1, 5)
 	
 	local rndX = math.random(-200, 200)
@@ -71,9 +77,6 @@ function ENT:SpawnNPCS()
 			ent:Give(wep)
 		end
 	end
-	
-	/*print( table.remove( beacons, keyToRemove ) )
-	self:Remove()*/ -- move these two lines after the spawning routine
 end 
 
 function ENT:Think()
