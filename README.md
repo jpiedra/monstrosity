@@ -7,11 +7,11 @@ BEACONS:
       - C: Really, really make sure they don't spawn inside anything solid, prop or wall [IP]
     - 3: States:
       - A: Beacons should be automated in the following manner:
-        - Spawned -> idle[green] state until captured[red] by a team, or goes to haste[blue]
-        - Beacon(s) captured[red]; team caps beacon and scores, NPCs start spawning until...
-          - warning[yellow]; beacon is about to be removed, get ready for the next one to Spawn
+        - Spawned -> idle[green] state until captured[yellow] by a team, or goes to haste[blue]
+        - Beacon(s) captured[yellow]; team caps beacon and scores, NPCs start spawning until...
+          - warning[red]; beacon is about to be removed, get ready for the next one to Spawn
         - Beacon(s) haste[blue]; beacon hasn't been captured and is about to be removed...
-          - captured[red] if captured before its removed; else, remove and Spawn new one elsewhere.
+          - captured[yellow] if captured before its removed; else, remove and Spawn new one elsewhere.
   - DONE:
     - 1: Make them float in-place (DONE, fall onto the ground when spawned... for now)
     - 2: Spawning routines
