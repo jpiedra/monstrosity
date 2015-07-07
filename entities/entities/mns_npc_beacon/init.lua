@@ -12,7 +12,10 @@ function ENT:Initialize()
     local min=Vector(0-(w/2),0-(l/2),0-(h/2))
     local max=Vector(w/2,l/2,h/2)
  
-  	self:SetModel( "models/props_trainstation/trainstation_ornament001.mdl" )
+	//self:SetModel( "models/props_combine/combine_binocular01.mdl" )
+	//self:SetModel( "models/props_combine/combine_light001b.mdl" )
+	//self:SetModel( "models/props_rooftop/roof_vent004.mdl" )
+  	self:SetModel( "models/props_combine/combine_binocular01.mdl" )
 	//self:SetCollisionBounds(min,max)
 	//self:SetModelScale( self:GetModelScale() * 0.5, 0 )
 	//self:SetCustomCollisionCheck( true ) ShouldCollideTestHook( ent1, ent2 ) in GM

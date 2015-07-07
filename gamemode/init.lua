@@ -79,7 +79,7 @@ end
 end*/
 
 hook.Add( 'PlayerShouldTakeDamage', 'mns.ffire', function ( target, attacker ) 
-	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) then	
+	if ( attacker:IsPlayer() ) && ( attacker:Team() == target:Team() ) && ( attacker != target ) then	
 		return false
 	elseif ( attacker:IsNPC() ) then 
 		return true
