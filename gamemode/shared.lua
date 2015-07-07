@@ -35,6 +35,8 @@ teams[1] = { name = "White",
 				"weapon_pistol"
 			 } 
 		   }
+		   
+
 
 
 

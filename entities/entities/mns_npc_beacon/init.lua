@@ -16,6 +16,8 @@ function ENT:Initialize()
 	//self:SetModel( "models/props_combine/combine_light001b.mdl" )
 	//self:SetModel( "models/props_rooftop/roof_vent004.mdl" )
   	self:SetModel( "models/props_combine/combine_binocular01.mdl" )
+	self:SetColor( Color( 0, 255, 0, 255 ) )
+	self:SetRenderMode( RENDERMODE_WORLDGLOW )
 	//self:SetCollisionBounds(min,max)
 	//self:SetModelScale( self:GetModelScale() * 0.5, 0 )
 	//self:SetCustomCollisionCheck( true ) ShouldCollideTestHook( ent1, ent2 ) in GM
@@ -32,7 +34,7 @@ end
 
 function ENT:Use( activator )
 	local isTriggered = self:GetTriggered()
-
+	self:SetColor( Color( 255, 0, 0, 255 ) )
 	//&& !isTriggered
 	
 	if activator:IsPlayer() then 
