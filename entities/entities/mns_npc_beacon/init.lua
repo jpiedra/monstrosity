@@ -9,7 +9,7 @@ function ENT:Initialize()
 	self:SetModelScale( self:GetModelScale() * 0.5, 0 )
 	//self:SetCustomCollisionCheck( true ) ShouldCollideTestHook( ent1, ent2 ) in GM
 	self:PhysicsInit( SOLID_VPHYSICS )
-	self:SetMoveType( MOVETYPE_VPHYSICS ) -- MOVETYPE_NONE to disable pushing, but then floats in air!
+	self:SetMoveType( MOVETYPE_NONE ) -- MOVETYPE_NONE to disable pushing, but then floats in air!
 	self:SetSolid( SOLID_VPHYSICS )
 	self:SetTriggered( false )
 	

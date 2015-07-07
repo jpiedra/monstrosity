@@ -98,6 +98,7 @@ concommand.Add( "mns_spawnbeacon", function( pl )
 
 	ent:SetPos( trace.HitPos )
 	ent:Spawn()
+	ent:DropToFloor()
 	if ( ent:IsValid() ) then 
 		table.insert( beacons, ent:EntIndex() )
 		print( "[" .. table.maxn( beacons ) .. "]: " .. beacons[table.maxn( beacons )] )
