@@ -19,5 +19,12 @@ MNS_NPCS = {
 
 function ENT:SetupDataTables()
 	self:NetworkVar( "Bool", 0, "Triggered" )
+	self:NetworkVar( "Int", 0, "State" )
+	self:NetworkVar( "Int", 0, "LastThink" )
+	self:NetworkVar( "Int", 0, "IdleLimit" )
+	self:NetworkVar( "Int", 0, "SpawnLimit" )
+	self:NetworkVar( "Int", 0, "WarningLimit" )
+	self:NetworkVar( "Int", 0, "HasteLimit" )
 end
+
 
