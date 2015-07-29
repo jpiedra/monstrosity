@@ -1,5 +1,5 @@
 SWEP.PrintName		=	"Chair Launcher"
-SWEP.Author			=	"roflwaffle"
+SWEP.Author			=	"jpz"
 SWEP.Instructions	=	"ctrl + a; ctrl + c;  win"
 
 SWEP.Primary.ClipSize 		=	-1

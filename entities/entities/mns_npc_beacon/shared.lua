@@ -2,7 +2,7 @@ ENT.Type 		= "anim"
 ENT.Base 		= "base_entity"
 
 ENT.PrintName	= "NPC Beacon"
-ENT.Author		= "roflwaffle"
+ENT.Author		= "jpz"
 ENT.Contact		= "N/A"
 
 ENT.Spawnable			= true
